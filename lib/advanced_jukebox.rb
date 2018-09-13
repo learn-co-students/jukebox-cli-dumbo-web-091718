@@ -3,13 +3,13 @@
 #with the correct path to this directory on your computer
 
 my_songs = {
-"Go Go GO" => 'home/alexanderchao123/jukebox-cli-dumbo-web-091718/audio/Emerald-Park/01.mp3',
-"LiberTeens" => 'home/alexanderchao123/jukebox-cli-dumbo-web-091718/audio/Emerald-Park/02.mp3',
-"Hamburg" =>  'home/alexanderchao123/jukebox-cli-dumbo-web-091718/audio/Emerald-Park/03.mp3',
-"Guiding Light" => 'home/alexanderchao123/jukebox-cli-dumbo-web-091718/audio/Emerald-Park/04.mp3',
-"Wolf" => 'home/alexanderchao123/jukebox-cli-dumbo-web-091718/audio/Emerald-Park/05.mp3',
-"Blue" => 'home/alexanderchao123/jukebox-cli-dumbo-web-091718/audio/Emerald-Park/06.mp3',
-"Graduation Failed" => 'home/alexanderchao123/jukebox-cli-dumbo-web-091718/audio/Emerald-Park/07.mp3'
+"Go Go GO" => '~/Desktop/jukebox-cli-dumbo-web-091718/audio/Emerald-Park/01.mp3',
+"LiberTeens" => '~/Desktop/jukebox-cli-dumbo-web-091718/audio/Emerald-Park/02.mp3',
+"Hamburg" =>  '~/Desktop/jukebox-cli-dumbo-web-091718/audio/Emerald-Park/03.mp3',
+"Guiding Light" => '~/Desktop/jukebox-cli-dumbo-web-091718/audio/Emerald-Park/04.mp3',
+"Wolf" => '~/Desktop/jukebox-cli-dumbo-web-091718/audio/Emerald-Park/05.mp3',
+"Blue" => '~/Desktop/jukebox-cli-dumbo-web-091718/audio/Emerald-Park/06.mp3',
+"Graduation Failed" => '~/Desktop/jukebox-cli-dumbo-web-091718/audio/Emerald-Park/07.mp3'
 }
 
 def help
@@ -20,15 +20,11 @@ def help
   puts "- exit : exits this program"
 end
 
-
-
 def list(my_songs)
   #this method is different! Collect the keys of the my_songs hash and
   #list the songs by name
   songs = my_songs.keys().each {|song| puts song}
 end
-
-# list(my_songs)
 
 def play(my_songs)
   #this method is slightly different!
@@ -38,11 +34,11 @@ def play(my_songs)
   #if it isn't, tell them their choice is invalid
   #if it is, play the song using the system 'open <file path>' syntax
   #get the file path of the song by looking it up in the my_songs hash
-  puts "Please enter a song name or number:"
+  puts "Please enter a song name"
   request = gets().chomp()
 
   if my_songs.has_key?(request)
-    system "open #{my_songs[request]}"
+    system "open " + my_songs[request]
   else
     puts "Invalid input, please try again"
   end
